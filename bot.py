@@ -198,7 +198,7 @@ async def handle_admin_payment_confirmation(update: Update, context: ContextType
             chat_id,
             f"🎟️ Ticket: {escrow['ticket']}\n📌 Status: Awaiting Payment ❌\n"
             f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(escrow['fiat_amount'])} ({FIAT_LABEL})\n"
-            "📄 Response: Payment has not yet been received. You will receive a message once it has confirmed on our system."
+            "📄 Response: Payment has not yet been received.\nYou will receive a message once it has confirmed on our system."
         )
         escrow["latest_message_id"] = msg.message_id
 
