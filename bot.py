@@ -413,19 +413,19 @@ async def wallet_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"💷 Trade Amount: {FIAT_SYMBOL}{fmt_auto(amount_fiat)} ({FIAT_LABEL}) ({fmt_crypto(amount_crypto)} {coin})\n"
         f"💸 Escrow Fee (5%): {FIAT_SYMBOL}{fmt_auto(fee_fiat)} ({FIAT_LABEL})\n"
         f"🏦 Send To Seller: {FIAT_SYMBOL}{fmt_auto(payout_fiat)} ({FIAT_LABEL})\n\n"
-        f"👤 Buyer: @{buyer_username}\n👤 Seller: @{seller_username}\n"
-        f"👛 Seller Wallet: `{wallet_address}`\n\n📄 Response: Please confirm funds release",
+        f"👤 Buyer: @{buyer_username}\n👤 Seller: @{seller_username}\n\n"
+        f"👛 Seller Wallet: `{wallet_address}`\n\n📄 Response: Please confirm when sent.",
         parse_mode="Markdown",
-        reply_markup=create_buttons([("Mark as Sent ✅", f"admin_sent_{ticket}")])
+        reply_markup=create_buttons([("Sent ✅", f"admin_sent_{ticket}")])
     )
 
     # Notify escrow group (buyer/seller) with the same compact info (no wallet)
     await update.message.reply_text(
         f"🎟️ Ticket: {ticket}\n📌 Status: Processing Payment...⏳\n\n"
-        f"💷 Trade Amount: {FIAT_SYMBOL}{fmt_auto(amount_fiat)} ({FIAT_LABEL}) ({fmt_crypto(amount_crypto)} {coin})\n"
-        f"💸 Escrow Fee (5%): {FIAT_SYMBOL}{fmt_auto(fee_fiat)} ({FIAT_LABEL})\n"
-        f"🏦 Amount Being Released: {FIAT_SYMBOL}{fmt_auto(payout_fiat)} ({FIAT_LABEL})\n\n"
-        "📄 Response: Funds are being sent to seller, you will receive an update in this chat when payment has been sent.",
+        f"💷 Trade Amount: {FIAT_SYMBOL}{fmt_auto(amount_fiat)} ({FIAT_LABEL})\n 🪙 Trade Amount: {fmt_crypto(amount_crypto)} ({coin})\n"
+        f"💸 Escrow Fee (5%): {FIAT_SYMBOL}{fmt_auto(fee_fiat)} ({FIAT_LABEL})\n\n"
+        f"🏦 Seller Gets: {FIAT_SYMBOL}{fmt_auto(payout_fiat)} ({FIAT_LABEL})\n\n"
+        "📄 Response: Funds are being transferred to seller, you will receive an update in this chat when payment has been sent.",
         parse_mode="Markdown"
     )
 
