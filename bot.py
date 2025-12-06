@@ -269,7 +269,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"🎟️ Ticket: {escrow['ticket']}\n📌 Status: Awaiting Amount 💷\n"
             f"🪙 Crypto: {crypto}\n👤 Buyer: @{username}\n📄 Action: Buyer selected payment method"
         )
-        await query.message.reply_text(f"📄 Action: You selected {crypto} 🪙\n✍️ Response: Type the amount in GBP using: `/amount 100`", parse_mode="Markdown")
+        await query.message.reply_text(f"📄 Action: {crypto} has been selected 🪙\n✍️ Response: Buyer, type the amount in GBP using: `/amount 100`", parse_mode="Markdown")
         await query.message.edit_reply_markup(create_escrow_buttons(escrow))
 
     # Buyer Paid
@@ -364,7 +364,7 @@ async def handle_amount(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await clear_previous_buttons(context, escrow)
     await update.message.reply_text(
         f"🎟️ Ticket: {escrow['ticket']}\n📌 Status: Awaiting Payment ⏳\n"
-        f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(amount)} ({FIAT_LABEL})\n🪙 {fmt_crypto(crypto_amount)} {crypto}\n\n"
+        f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(amount)} ({FIAT_LABEL})\n🪙 Amount: {fmt_crypto(crypto_amount)} ({crypto})\n\n"
         f"📄 Send exact amount to wallet:\n\n`{wallet}`\n\n"
         "👇Mark as paid once done",
         parse_mode="Markdown",
