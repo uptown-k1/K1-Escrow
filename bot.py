@@ -365,7 +365,7 @@ async def handle_amount(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         f"🎟️ Ticket: {escrow['ticket']}\n📌 Status: Awaiting Payment ⏳\n"
         f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(amount)} ({FIAT_LABEL})\n🪙 Amount: {fmt_crypto(crypto_amount)} ({crypto})\n\n"
-        f"📄 Send exact amount to wallet:\n\n`{wallet}`\n\n📄 Tap wallet to copy\n"
+        f"📄 Send exact amount to wallet:\n📄 Tap wallet address to copy\n\n`{wallet}`\n\n"
         "👇Mark as paid once done",
         parse_mode="Markdown",
         reply_markup=create_buttons([
