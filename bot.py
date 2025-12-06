@@ -525,7 +525,7 @@ async def dispute_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"🎟️ Ticket: {ticket}\n📌 Status: Trade Disputed ⚠️\n"
         f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(amount) if isinstance(amount, (int, float)) else amount} ({FIAT_LABEL}) ({fmt_crypto(crypto_amount)} {coin})\n"
         f"👤 Buyer: @{buyer_username}\n👤 Seller: @{seller_username}\n"
-        f"📄 Action: Trade disputed by @{username}. Escrow is now paused. Please wait for admin to review.",
+        f"📄 Action: Trade disputed by @{username}. Escrow is now paused.\nIf one of you leave group, escrow will rule in other persons favour.\nAdd admin @uptownk1 to this group chat to resolve",
         parse_mode="Markdown"
     )
 
@@ -536,7 +536,7 @@ async def dispute_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"💷 Amount: {FIAT_SYMBOL}{fmt_auto(amount) if isinstance(amount, (int, float)) else amount} ({FIAT_LABEL}) ({fmt_crypto(crypto_amount)} {coin})\n"
         f"👤 Buyer: @{buyer_username}\n👤 Seller: @{seller_username}\n"
         f"📄 Action: Dispute opened by @{username}. "
-        "Bot cannot generate an invite link. Please ask a participant to provide a manual invite link or add you to the group to review.",
+        "Waiting for Buyer/Seller to add you to the group to resolve.",
         parse_mode="Markdown"
     )
 
